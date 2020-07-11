@@ -1,28 +1,31 @@
 <template>
-  <div class="container content_login">
-    <div v-show="error" class="alert alert-danger mt-5" role="alert">Los datos no son correctos, intentelo nuevamente
-      <i><img class="icon_error" src="img/error.svg"></i>
-    </div>
+  <div class="container content__login">
+    <transition name='fade'>
+      <div v-show="error" class="alert alert-danger mt-5" role="alert">
+        <i><img class="alert__error" src="img/error.svg"></i>
+        Los datos no son correctos, intentelo nuevamente
+      </div>
+    </transition>
     <div class="row login">
       <div class="login__bg"></div>
       <div class="login__form">
-        <div class="logo">
-          <img src="img/desafio-latam.png" class="mb-5"/>
+        <div class="login__logo">
+          <img src="/img/logo.svg" class="mb-2"/>
         </div>
         <form :model="credentials">
           <div class="form-group">
             <label class="text-left">Email</label>
 
-            <div class="input">
-              <img class="svg" src="img/mail.svg"/>
+            <div class="form__input">
+              <img class="form__svg" src="img/mail.svg"/>
               <input type="email" class="form-control" placeholder="Correo electrónico" v-model="credentials.email"/>
             </div>
           </div>
 
           <div class="form-group">
             <label>Password</label>
-            <div class="input">
-              <img class="svg" src="img/password.svg"/>
+            <div class="form__input">
+              <img class="form__svg" src="img/password.svg"/>
               <input type="password" class="form-control" placeholder="Contraseña" v-model="credentials.password"/>
             </div>
           </div>
@@ -44,7 +47,7 @@ export default {
         email: "",
         password: ""
       },
-      error: false
+      error: false,
     };
   },
   methods: {
@@ -62,7 +65,7 @@ export default {
           this.error = true;
           setTimeout(() => {
             this.error = false;
-          }, 4000);
+          }, 3000);
           console.log(error);
         });
     }
@@ -70,7 +73,7 @@ export default {
 };
 </script>
 <style scoped>
-.content_login{
+.content__login{
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -80,13 +83,15 @@ export default {
     background-size: cover;
 }
 .alert {
-    width: 70%;
+    width: 50%;
     text-align: center;
     padding: 15px;
+    position: absolute;
+    top: -37px;
 }
-.icon_error{
+.alert__error{
   width: 20px;
-  margin-left: 20px;
+  margin-right: 12px;
 }
 .login {
   width: 70%;
@@ -110,18 +115,18 @@ export default {
   padding: 60px 0;
   border-radius: 30px;
 }
-.logo {
+.login__logo {
   display: flex;
   justify-content: center;
 }
-.logo img {
-  width: 50%;
+.login__logo img {
+  width: 22%;
 }
-.input {
+.form__input {
   margin-bottom: 10px;
   display: flex;
 }
-.svg {
+.form__svg {
   width: 24px;
   position: absolute;
   margin: 12px 15px;
@@ -147,6 +152,16 @@ button {
   -moz-box-shadow: 0px 11px 23px -10px rgba(0, 116, 240, 1);
   box-shadow: 0px 11px 23px -10px rgba(0, 116, 240, 1);
 }
+.fade-enter-active, .fade-leave-active {
+  transition: .2s;
+}
+.fade-enter-active {
+  transition-delay: .2s;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+  margin-top:20px;
+}
 @media(max-width: 767px) {
   .login__bg{
     display: none;
@@ -155,6 +170,9 @@ button {
     width: 100%;
   }
   .login{
+    width: 90%;
+  }
+  .alert{
     width: 90%;
   }
 }

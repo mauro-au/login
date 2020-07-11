@@ -1,31 +1,6 @@
 <template>
   <div>
-    <div class="container-fluid menu">
-      <div class="container">
-        <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
-          <a class="navbar-brand" href="/">
-            <img src="/img/desafio-latam.png" alt />
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item log-out">
-                <a class="nav-link" href="#" @click="logout">Log Out</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
-
+    <nav-bar/>
     <div class="container home_title">
       <h1 class="mt-5">Bienvenido al Sitio</h1>
       <p
@@ -37,59 +12,21 @@
 </template>
 
 <script>
-import Firebase from "firebase";
+import NavBar from '@/components/NavBar.vue'
 export default {
   data() {
-    return {};
+    return {
+      menu:true
+    };
   },
-  methods: {
-    logout() {
-      Firebase.auth()
-        .signOut()
-        .then(() => {
-          this.$router.push("login");
-        });
-    }
-  }
+  components: {
+    NavBar,
+  },
 };
 </script>
+
 <style scoped>
-.header {
-  background-color: #b3c0d1;
-  color: #333;
-  line-height: 60px;
-}
-.button {
-  float: right;
-  margin-top: 10px;
-}
-.navbar-brand {
-  background: #fff;
-  padding: 13px;
-}
-.navbar-brand img {
-  width: 110px;
-}
-.aside {
-  color: #333;
-}
-.menu {
-  background: #000;
-}
-.navbar {
-  padding: 0;
-}
-.nav-item {
-  margin: 0 15px;
-}
-.log-out {
-  background: #fff;
-  border-radius: 20px;
-  padding: 0 15px;
-}
-.log-out a {
-  color: #000 !important;
-}
+
 .home_title h1 {
   font-size: 3.5em;
   font-weight: bolder;

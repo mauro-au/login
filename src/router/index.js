@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 const Home = () => import('@/components/Home.vue')
 const Login = () => import('@/components/Login.vue')
+const About = () => import('@/components/About.vue')
 import Firebase from "firebase";
 
 Vue.use(Router)
@@ -9,10 +10,6 @@ Vue.use(Router)
 const router = new Router({
   mode: 'history',
   routes: [
-    {
-      path: '*',
-      redirect: '/login'
-    },
     {
       path: "/",
       redirect: "/login"
@@ -25,7 +22,16 @@ const router = new Router({
     {
       path: '/home',
       name: 'home',
+      alias: ['/home', '/inicio'],
       component: Home,
+      meta: {
+        requireLogin: true
+      }
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About,
       meta: {
         requireLogin: true
       }
