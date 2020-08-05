@@ -48,29 +48,32 @@ Antes de arrancar este proyecto debes tener instalado lo siguiente
 
 > [https://nodejs.org/](https://nodejs.org/)
 
-**Vue.js** 
-
-> [https://vuejs.org/](https://vuejs.org/)
-
-```
-$ npm install -g vue
-```
-
 **Vue CLI**
 
 > [https://cli.vuejs.org/](https://cli.vuejs.org/)
 
 ```
-npm install -g @vue/cli @vue/cli-service-global
+$ npm install -g @vue/cli
+```
+
+#or
+
+```
+$ yarn global add @vue/cli
 ```
 
 **Firebase**
 
 > https://firebase.google.com/
->
 
 ```
-npm install -g firebase-tools
+$ npm install -g firebase-tools
+```
+
+#or
+
+```
+$ yarn add -g firebase firebase-tools
 ```
 
 
