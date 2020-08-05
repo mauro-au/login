@@ -56,7 +56,7 @@ Antes de arrancar este proyecto debes tener instalado lo siguiente
 $ npm install -g @vue/cli
 ```
 
-#or
+#o
 
 ```
 $ yarn global add @vue/cli
@@ -70,7 +70,7 @@ $ yarn global add @vue/cli
 $ npm install -g firebase-tools
 ```
 
-#or
+#o
 
 ```
 $ yarn add -g firebase firebase-tools
@@ -94,11 +94,27 @@ Una vez clonado el proyecto solo queda instalar las dependencias, ubicándose en
 $ npm install
 ```
 
+#o
+
+```
+$ yarn install
+```
+
+
+
 Terminado el proceso se podrá ejecutar el proyecto localmente con el siguiente comando
 
 ```
-npm run serve
+$ npm run serve
 ```
+
+#o
+
+```
+$ yarn start
+```
+
+
 
 Para inicializar Firebase en su proyecto
 
@@ -115,6 +131,14 @@ Con el siguiente comando se compila y minifica para producción
 ```
 $ npm run build
 ```
+
+#o
+
+```
+$ yarn build
+```
+
+
 
 Para implementar el alojamiento en Firebase y ver el proyecto en producción
 
